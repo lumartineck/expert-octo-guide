@@ -1,0 +1,55 @@
+{
+  "name": "ms-contabilizate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": ">=7"
+  },
+  "scripts": {
+    "heroku-postbuild": "npm run clean && npm run build",
+    "test": "NODE_ENV=test ./node_modules/.bin/mocha -b",
+    "clean": "rm -rf build && mkdir build",
+    "build": "./node_modules/.bin/babel src -d build",
+    "start": "node ./build/index.js",
+    "start_dev": "npm run clean && npm run build && node ./build/index.js",
+    "dev": "./node_modules/.bin/nodemon --ignore 'build/*' -x npm run start_dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vhuerta/kheberga-api.git"
+  },
+  "author": "Victor Huerta <vhuertahnz@gmail.com> (https://github.com/vhuerta)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/compropago/Scaffoldings/issues"
+  },
+  "homepage": "https://github.com/compropago/Scaffoldings/blob/ms-js/README.md",
+  "dependencies": {
+    "@compropago-dev/dlimits": "0.0.4",
+    "ajv": "^4.11.3",
+    "babel-cli": "^6.23.0",
+    "babel-preset-node7": "^1.5.0",
+    "bcrypt": "^1.0.2",
+    "bluebird": "^3.4.6",
+    "body-parser": "^1.16.1",
+    "express": "^4.14.1",
+    "handlebars": "^4.0.6",
+    "html-minifier": "^3.3.1",
+    "joi": "^10.2.2",
+    "jsonwebtoken": "^7.3.0",
+    "mongoose": "^4.8.2",
+    "node-uuid": "^1.4.7",
+    "ramda": "^0.23.0",
+    "redis": "^2.6.3",
+    "sendgrid": "^4.7.1",
+    "tracer": "^0.8.7"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "faker": "^4.1.0",
+    "mocha": "^3.1.2",
+    "nodemon": "^1.11.0",
+    "should": "^11.1.1"
+  }
+}

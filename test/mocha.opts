@@ -1,0 +1,10 @@
+--reporter spec
+--recursive
+--slow 2000
+--timeout 300000
+--require babel-register
+--require should
+--bail
+--harmony-async-await
+-c
+--use_strict 
