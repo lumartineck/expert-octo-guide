@@ -45,7 +45,7 @@ const IO = (req, res, { code = 200, message, data }) => {
   let result = httpCodes(code);
 
   let response = {
-    object: req.serviceMethodName || "auth",
+    object: req.serviceMethodName || "ms-contabilizate",
     code: result.httpCode,
     status: result.status,
     message: message || result.message,
