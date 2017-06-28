@@ -9,9 +9,16 @@
 import { default as controller, methods } from './../controllers/taxpayer/taxpayer_controller';
 
 import { Router } from 'express';
+import Multer from 'multer';
 
 const router = Router();
+const upload = Multer();
 
-router.post('/taxpayers', controller[methods.CREATE]);
+const filesUpload = upload.fields([
+    { name: 'cerFirma', maxCount: 1 }, 
+    { name: 'keyFirma', maxCount: 1 },
+    { name: 'cerCsd', maxCount: 1 },
+    { name: 'keyCsd', maxCount: 1 }])
+router.post('/taxpayers', filesUpload, controller[methods.CREATE]);
 
 export default router;
